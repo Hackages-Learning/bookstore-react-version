@@ -1,25 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import {books as mockBooks} from './mocks/books'
+import {Header, Search, Book} from './components'
+
+
+
 
 function App() {
+  const [books, setBooks] = useState(mockBooks)
+
+  const searchBooksByTitle = (term: string) =>{
+    const results = mockBooks.filter(book => book.title.toLowerCase().includes(term.toLowerCase()))
+    setBooks(results)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <Header title="Bookstore in React by Hackages"></Header>
+    <Search onSearch={searchBooksByTitle} ></Search>
+    <h3>We have {books.length} book(s) in our library</h3>
+    <hr />
+    <br />
+    <div className="container">
+      {books.map(book => <Book key={book.id} {...book}></Book>)}
     </div>
+    </>
   );
 }
 
