@@ -70,12 +70,17 @@ html {
   color: var(--white);
   background-color: var(--palette_background_1);
   line-height: 1.3;
+  font-size: 16px;
 }
 
 html,
 body,
 #root {
   width: 100%;
+}
+
+body {
+  position: relative;
 }
 
 /* Default CSS */
@@ -170,6 +175,7 @@ header > .container {
   padding: 30px;
   border: 1px solid transparent;
   transition: 0.4s all;
+  cursor: pointer;
 }
 
 .books-grid .item:hover {
@@ -191,6 +197,113 @@ header > .container {
   color: #94959e;
 }
 
+/* Book Details */
+.book-details-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.book-details-wrapper .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: var(--palette_background_1);
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.bookDetails {
+  position: absolute;
+  height: 100vh;
+  width: 450px;
+  top: 0;
+  right: 0;
+  background: var(--palette_background_2);
+  padding: 60px 40px 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bookDetails .close {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: var(--palette_background_1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.bookDetails .close img {
+  margin-bottom: 0;
+}
+
+.bookDetails h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.bookDetails img {
+  max-width: 200px;
+  margin-bottom: 20px;
+}
+
+.bookDetails h3 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.bookDetails .author {
+  font-size: 16px;
+  color: #c4c5ca;
+  margin-bottom: 20px;
+}
+
+.bookDetails .stars {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.bookDetails .desc {
+  text-align: left;
+  color: #aaabb2;
+  margin-bottom: 30px;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+.bookDetailsBottom button {
+  background: var(--palette_accent_2);
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #fff;
+  font-weight: 500;
+  padding: 15px 40px;
+  border-radius: 40px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.bookDetailsBottom button:hover {
+  opacity: 0.8;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 580px) {
@@ -206,5 +319,11 @@ header > .container {
 
   #search-input {
     width: 100%;
+  }
+
+  .bookDetails {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
   }
 }
