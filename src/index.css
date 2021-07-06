@@ -296,6 +296,12 @@ header > .container {
   border-radius: 40px;
   outline: none;
   border: 0;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.bookDetailsBottom button:hover {
+  opacity: 0.8;
 }
 
 /* Responsive */
