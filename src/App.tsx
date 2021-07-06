@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { Book, Header } from "./components";
+import BookDetails from "./components/BookDetails/book-details";
 import { books as mockBooks } from "./mocks/books";
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           </div>
         </div>
       </div>
+      <BookDetails />
     </>
   );
 }
