@@ -1,11 +1,10 @@
-import React from 'react'
-import { IBook } from '../../types'
+import React from "react";
+import { IBook } from "../../types";
 
 export const Book = (book: IBook) => (
-    <div className="item">
-      <a href={book.title} className="module hero">
-        {book.title}
-      </a>
-    </div>
-  )
-  
+  <a href={book.title} className="item">
+    <img src={book.image} alt="" />
+    <h4>{book.title}</h4>
+    <p>{book.author}</p>
+  </a>
+);
